@@ -1,0 +1,277 @@
+<odoo>
+  <data>
+    <!-- Vistas de concesionario -->
+
+    <record model="ir.ui.view" id="concesionario.coche_list_view">
+        <field name="name">concesionario.coche.view.tree</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="modelo"/>
+                <field name="matricula"/>
+                <field name="fecha"/>
+                <field name="marca"/>
+                <field name="precio"/>
+                <field name="cantidad"/>
+                <field name="cliente_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- search -->
+
+    <record model="ir.ui.view" id="concesionario.coche_search_view">
+        <field name="name">concesionario.coche.view.search</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+            <search>
+                    <field name="name"/>
+                    <field name="modelo"/>
+                    <field name="matricula"/>
+                    <field name="fecha"/>
+                    <field name="marca"/>
+                    <field name="precio"/>
+                    <field name="cantidad"/>
+                    <field name="cliente_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!--Formulario -->
+     <record model="ir.ui.view" id="concesionario.coche_form_view">
+        <field name="name">concesionario.coche.view.form</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+            <form string="Información concesionario">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                        Código <field name="name" placeholder=""/>
+                        Modelo <field name="modelo" placeholder=""/>
+                        Matrícula <field name="matricula" placeholder=""/>
+                        Marca <field name="marca" placeholder=""/>
+                        Precio <field name="precio" placeholder=""/>
+                        Cantidad <field name="cantidad" placeholder=""/>
+                        Fecha <field name="fecha" placeholder=""/>
+                        </h1>
+                    </div>
+                     <field name="name"/>
+                     <field name="cliente_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Calendar-->
+    <record model="ir.ui.view" id="concesionario.coche_calendar_view">
+        <field name="name">concesionario.coche.view.calendar</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+            <calendar string="Fecha de compra" date_start="fecha" mode="month"> 
+                <field name="name"/>
+                <field name="modelo"/>
+                <field name="matricula"/>
+                <field name="fecha"/>
+                <field name="marca"/>
+                <field name="precio"/>
+                <field name="cantidad"/>
+            </calendar>
+        </field>
+    </record>
+        
+    <!--Menús-->
+    <record model="ir.actions.act_window" id="concesionario.coche_action_window">
+        <field name="name">Coches</field>
+        <field name="res_model">concesionario.coche</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+    
+    <menuitem name="concesionario" id="concesionario.menu_root"/>
+    <menuitem name="Coches" id="concesionario.menu_coche" parent="concesionario.menu_root"/>
+    <menuitem name="ListCoches" id="concesionario.menu_coche_list" parent="concesionario.menu_coche" action="concesionario.coche_action_window"/>
+    <menuitem name="icono" id="concesionario.menu_root" web_icon="concesionario,static-description/icono.png"/>
+       
+   <!-- Vistas de revision -->
+    <record model="ir.ui.view" id="concesionario.revision_list_view">
+        <field name="name">concesionario.revision.view.tree</field>
+        <field name="model">concesionario.revision</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="cambioFiltro"/>
+                <field name="cambioAceite"/>
+                <field name="cambioFrenos"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- search -->
+    <record model="ir.ui.view" id="concesionario.revision_search_view">
+        <field name="name">concesionario.revision.view.search</field>
+        <field name="model">concesionario.revision</field>
+        <field name="arch" type="xml">
+            <search>
+                    <field name="id"/>
+                    <field name="cambioFiltro"/>
+                    <field name="cambioAceite"/>
+                    <field name="cambioFrenos"/>
+            </search>
+        </field>
+    </record>
+
+    <!--Formulario -->
+     <record model="ir.ui.view" id="concesionario.revision_form_view">
+        <field name="name">concesionario.revision.view.form</field>
+        <field name="model">concesionario.revision</field>
+        <field name="arch" type="xml">
+            <form string="Información de la revision">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                        ID <field name="name"/>
+                        CambioFiltro <field name="cambioFiltro"/>
+                        CambioAceite <field name="cambioAceite"/>
+                        CambioFrenos <field name="cambioFrenos"/>
+                        </h1>
+                        
+                    </div>
+                     <field name="id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Menús-->
+    <record model="ir.actions.act_window" id="concesionario.revision_action_window">
+        <field name="name">Revisiones</field>
+        <field name="res_model">concesionario.revision</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="concesionario" id="concesionario.menu_root"/>
+    <menuitem name="Revisiones" id="concesionario.menu_revision" parent="concesionario.menu_root"/>
+    <menuitem name="List_Revisiones" id="concesionario.menu_revision_list" parent="concesionario.menu_revision" action="concesionario.revision_action_window"/>
+
+    <!-- Vistas de cliente -->
+    <record model="ir.ui.view" id="concesionario.cliente_list_view">
+        <field name="name">concesionario.cliente.view.tree</field>
+        <field name="model">concesionario.cliente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="direccion"/>
+                <field name="nombre"/>
+                <field name="coche_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- search -->
+
+    <record model="ir.ui.view" id="concesionario.cliente_search_view">
+        <field name="name">concesionario.cliente.view.search</field>
+        <field name="model">concesionario.cliente</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="direccion"/>
+                <field name="nombre"/>
+                <field name="coche_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!--Formulario -->
+
+     <record model="ir.ui.view" id="concesionario.cliente_form_view">
+        <field name="name">concesionario.cliente.view.form</field>
+        <field name="model">concesionario.cliente</field>
+        <field name="arch" type="xml">
+            <form string="Información del Cliente">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                        NIF <field name="name" />
+                        Nombre <field name="nombre" placeholder=""/>
+                        Dirección <field name="direccion" placeholder=""/>
+
+                       
+                        </h1>
+                    </div>
+                     <field name="id"/>
+                     <field name="coche_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Menús-->
+    <record model="ir.actions.act_window" id="concesionario.cliente_action_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">concesionario.cliente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="concesionario" id="concesionario.menu_root"/>
+    <menuitem name="Clientes" id="concesionario.menu_cliente" parent="concesionario.menu_root"/>
+    <menuitem name="List_Clientes" id="concesionario.menu_cliente_list" parent="concesionario.menu_cliente" action="concesionario.cliente_action_window"/>
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="concesionario.list">
+      <field name="name">concesionario list</field>
+      <field name="model">concesionario.concesionario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="concesionario.action_window">
+      <field name="name">concesionario window</field>
+      <field name="res_model">concesionario.concesionario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="concesionario.action_server">
+      <field name="name">concesionario server</field>
+      <field name="model_id" ref="model_concesionario_concesionario"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="concesionario" id="concesionario.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="concesionario.menu_1" parent="concesionario.menu_root"/>
+    <menuitem name="Menu 2" id="concesionario.menu_2" parent="concesionario.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="concesionario.menu_1_list" parent="concesionario.menu_1"
+              action="concesionario.action_window"/>
+    <menuitem name="Server to list" id="concesionario" parent="concesionario.menu_2"
+              action="concesionario.action_server"/>
+-->
+  </data>
+</odoo>

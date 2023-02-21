@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+          <record id="object0" model="concesionario.coche">
+            <field name="name">Coche1</field>
+            <field name="modelo">Modelo01</field>
+            <field name="matricula">1234QSD</field>
+            <field name="fecha">2012-12-22</field>
+            <field name="marca">BMW</field>
+          </record>
+
+          <record id="object1" model="concesionario.coche">
+            <field name="name">Coche2</field>
+            <field name="modelo">Modelo02</field>
+            <field name="matricula">5672KWE</field>
+            <field name="fecha">2020-14-JAGUAR</field>
+            <field name="marca">BMW</field>
+          </record>
+
+          <record id="object2" model="concesionario.coche">
+            <field name="name">Coche3</field>
+            <field name="modelo">Modelo03</field>
+            <field name="matricula">1591TRE</field>
+            <field name="fecha">1998-08-13</field>
+            <field name="marca">DACIA</field>
+          </record>
+
+
+          <!-- Demo de los clientes-->
+          <record id="cli1" model="concesionario.cliente">
+            <field name="name">123456F</field>
+            <field name="direccion">Calle Almenara 2</field>
+            <field name="nombre">Francisco</field>
+          </record>
+
+          <record id="cli2" model="concesionario.cliente">
+            <field name="name">987653E</field>
+            <field name="direccion">Plaza Einstein</field>
+            <field name="nombre">María</field>
+          </record>
+
+          <!-- Demo de las revisiones-->
+
+          <record id="rev1" model="concesionario.cliente">
+            <field name="name">3GJG</field>
+            <field name="cambioFiltro">2</field>
+            <field name="cambioAceite">200ml</field>
+            <field name="cambioFrenos">2</field>
+          </record>
+    </data>
+</odoo>

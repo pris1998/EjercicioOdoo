@@ -1,0 +1,31 @@
+<odoo>
+	<record id="concesionario.revision_report" model="ir.actions.report">
+		<field name="name">Informe de las revisiones</field>
+		<field name="model">concesionario.revision</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">concesionario.revision_report_view</field>
+		<field name="report_file">concesionario.revision_report</field>
+		<field name="binding_model_id" ref="model_concesionario_revision"/>
+		<field name="binding_type">report</field>
+
+	</record>
+
+	<template id="revision_report_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<h1>Revisiones</h1><br />
+				<t t-foreach="docs" t-as="revision">
+					<ul>
+						<li> name <span t-field="revision.name"/></li>
+						<li> cambioFiltro <span t-field="revision.cambioFiltro"/></li>
+						<li> cambioAceite <span t-field="revision.cambioAceite"/></li>
+						<li> cambioFrenos <span t-field="revision.cambioFrenos"/></li>
+					</ul>
+				</t>
+			</t>
+		</t>
+	</template>
+
+
+
+</odoo>

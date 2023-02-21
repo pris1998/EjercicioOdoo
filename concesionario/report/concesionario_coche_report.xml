@@ -1,0 +1,34 @@
+<odoo>
+	<record id="concesionario.coche_report" model="ir.actions.report">
+		<field name="name">Informe de los coches del concesionario </field>
+		<field name="model">concesionario.coche</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">concesionario.coche_report_view</field>
+		<field name="report_file">concesionario.coche_report</field>
+		<field name="binding_model_id" ref="model_concesionario_coche"/>
+		<field name="binding_type">report</field>
+
+	</record>
+
+
+	<template id="coche_report_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<h1>Coches</h1><br />
+				<t t-foreach="docs" t-as="coche">
+					<ul>
+						<li> name <span t-field="coche.name"/></li>
+						<li> modelo <span t-field="coche.modelo"/></li>
+						<li> matrícula <span t-field="coche.matricula"/></li>
+						<li> precio <span t-field="coche.precio"/></li>
+						<li> Años <span t-field="coche.annos"/></li>
+						<li> Total <span t-field="coche.total"/></li>
+					</ul>
+				</t>
+			</t>
+		</t>
+	</template>
+
+
+</odoo>
+
